@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "sectionContent": {
+      "title": "Section Content",
+      "description": "Content for a specific section of the website",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "description": { "type": "string" },
+        "image": { "type": "string" },
+        "ctaText": { "type": "string" },
+        "ctaLink": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "description": { "type": "string" },
+              "image": { "type": "string" },
+              "link": { "type": "string" },
+              "icon": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "content/{sectionId}": {
+      "schema": "sectionContent",
+      "description": "Content for specific sections like 'hero', 'about', 'socials', 'brands', etc."
+    }
+  }
+}

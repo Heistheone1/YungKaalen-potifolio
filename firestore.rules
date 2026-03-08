@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Content collection
+    match /content/{sectionId} {
+      allow read: if true;
+      allow write: if true; // Public write access for admin panel (protected by client-side password)
+    }
+  }
+}
